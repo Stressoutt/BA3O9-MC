@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BA3O9 MC — Server Launcher</title>
+  <meta name="description" content="BA3O9 MC." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="server-icon.png">
+  <link rel="stylesheet" href="styles.css">
+    <style>
+    .steps{counter-reset: step; display:grid; gap:14px; margin:12px 0 0}
+    .step{background:var(--surface-2); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px 14px 14px 48px; position:relative}
+    .step:before{
+      counter-increment: step; content: counter(step);
+      position:absolute; left:12px; top:12px; width:26px; height:26px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; background:linear-gradient(180deg,#34e89e,#0f9); color:#052012; box-shadow:var(--shadow)
+    }
+    .step strong{color:#fff}
+    .guide-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .note{font-size:12px; color:var(--muted)}
+    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); padding:2px 6px; border-radius:6px}
+    .path{font-family:ui-monospace,Menlo,Consolas,monospace; color:#cde9ff}
+  </style>
+</head>
+
+<body>
+  <header class="blur-header">
+    <nav class="nav">
+      <div class="brand">
+        <img src="server-icon.png" alt="BA3O9 MC icon" />
+        <h1>BA3O9 MC • Launcher</h1>
+      </div>
+
+      <div class="nav-actions">
+        <a class="btn ghost" href="#mods">Mods</a>
+        <a class="btn secondary" href="https://cdn.discordapp.com/attachments/1437892569005559819/1438204087362654310/BA3O9-MC-Mods.zip?ex=6916076e&is=6914b5ee&hm=9e4493854fb5e5725f59965548a15c6f66fe8a1051cd150c63c12d7be31dd68b&" target="_blank" rel="noopener">Download All Mods</a>
+        <a class="btn" id="discordBtn" target="_blank" rel="noopener">Join Discord</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card" data-animate style="--delay:.05s">
+        <div class="card-inner">
+          <span class="kicker">Welcome</span>
+          <h2 class="title">Play on BA3O9 MC (Forge MC 1.21.10 • 60.0.18)</h2>
+          <p class="muted">Copy the IP, grab the mods, and jump in. Survival-focused with exploration and QoL tweaks.</p>
+
+          <div class="server-card">
+            <div class="ip-row">
+              <input class="input" id="ip" value="194.56.226.253:25662" readonly>
+              <button class="btn" id="copyIp">Copy IP</button>
+            </div>
+
+            <div class="tools">
+              <span class="badge" title="Mod Loader">Forge • 1.21.10 / 60.0.18</span>
+              <a class="btn secondary" href="https://files.minecraftforge.net/net/minecraftforge/forge/" target="_blank" rel="noopener">Forge Website</a>
+              <a class="btn ghost" href="#mods">View Mod List</a>
+            </div>
+
+            <p class="tiny">Version mismatch? Use <strong>Forge 1.21.10 – 60.0.18</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hero-illu" data-animate style="--delay:.12s">
+        <div class="hero-overlay">
+          <div class="hero-text">
+            <div class="hero-title">Adventure Awaits</div>
+            <div class="hero-sub">New biomes, map & waystones, smarter crafting, and smoother performance.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Install Guide -->
+    <section id="guide" class="mods-section">
+      <div class="section-title">
+        <h2>Install Guide</h2>
+        <div class="cta-row">
+          <a class="btn secondary" href="https://files.minecraftforge.net/net/minecraftforge/forge/" target="_blank" rel="noopener">Get Forge</a>
+          <a class="btn" href="https://cdn.discordapp.com/attachments/1437892569005559819/1438204087362654310/BA3O9-MC-Mods.zip?ex=6916076e&is=6914b5ee&hm=9e4493854fb5e5725f59965548a15c6f66fe8a1051cd150c63c12d7be31dd68b&" target="_blank" rel="noopener">Download All Mods</a>
+        </div>
+      </div>
+
+      <div class="card" data-animate>
+        <div class="card-inner">
+          <p class="muted">Follow these steps (Windows):</p>
+          <div class="steps">
+            <div class="step">
+              <strong>Install Forge</strong> — download the installer from
+              <a class="btn ghost" style="padding:6px 10px;margin-left:6px" href="https://files.minecraftforge.net/net/minecraftforge/forge/" target="_blank" rel="noopener">Forge Website</a>
+              , then run it and choose <em>Install client</em>.
+            </div>
+
+            <div class="step">
+              Press <span class="kbd">Windows</span> + <span class="kbd">R</span> to open the Run dialog.
+            </div>
+
+            <div class="step">
+              Type <span class="kbd">%appdata%</span> and hit <span class="kbd">Enter</span>.
+            </div>
+
+            <div class="step">
+              Open <span class="path">.minecraft</span> → <span class="path">mods</span> folder.
+              <span class="note">If <em>mods</em> doesn’t exist yet, launch the game once with Forge to generate it.</span>
+            </div>
+
+            <div class="step">
+              Put all your downloaded mods inside a folder named <strong>BA3O9-MC-Mods</strong> and place that folder inside <span class="path">.minecraft/mods</span>.
+            </div>
+
+            <div class="step">
+              Launch Minecraft with the <strong>Forge 1.21.10 – 60.0.18</strong> profile, go to <strong>Multiplayer</strong>, add server
+              <span class="path">194.56.226.253:25662</span>, join, and enjoy your stay.
+            </div>
+          </div>
+
+          <div class="guide-actions">
+            <a class="btn secondary" href="https://cdn.discordapp.com/attachments/1437892569005559819/1438204087362654310/BA3O9-MC-Mods.zip?ex=6916076e&is=6914b5ee&hm=9e4493854fb5e5725f59965548a15c6f66fe8a1051cd150c63c12d7be31dd68b&" target="_blank" rel="noopener">Download All Mods</a>
+            <a class="btn ghost" href="#mods">View Mod List</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mods -->
+    <section id="mods" class="mods-section">
+      <div class="section-title">
+        <h2>Mod Pack</h2>
+        <div class="cta-row">
+          <div class="search">
+            <input id="search" type="search" placeholder="Search mods… (name or description)">
+            <button class="btn ghost" id="reset">Reset</button>
+          </div>
+          <a class="btn secondary" href="https://cdn.discordapp.com/attachments/1437892569005559819/1438204087362654310/BA3O9-MC-Mods.zip?ex=6916076e&is=6914b5ee&hm=9e4493854fb5e5725f59965548a15c6f66fe8a1051cd150c63c12d7be31dd68b&" target="_blank" rel="noopener">Download All Mods</a>
+        </div>
+      </div>
+
+      <div class="grid" id="modsGrid" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      developed with ♥️ by <strong>voidsyntax & stressoutt</strong>
+    </footer>
+  </main>
+
+  <div class="pulse" id="pulse"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
